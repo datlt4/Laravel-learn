@@ -127,19 +127,3 @@ php artisan tinker
 ```
 php artisan route:list
 ```
-
-## Important Directory
-
-```
-app/Http/Controllers
-app/Models
-
-database/factories
-database/migrations
-
-public/storage
-
-resources/views
-
-routes/web.php
-```
