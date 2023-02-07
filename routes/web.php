@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\Products;
+use App\Http\Controllers\Pages;
+use App\Http\Controllers\Posts;
+use App\Http\Controllers\Foods;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +17,26 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-//Route::get("product", [ProductsController::class, "index"]);
-
-Route::get("product/{id}", [ProductsController::class, "detail"]);
+Route::get("/product", [Products::class, "index"])->name("product");
+// Route::get("/product/{id}", [Products::class, "detail"])->where("id",'[\d]+');
+// Route::get("/product/{id}", [Products::class, "detail"])->where("id", '[a-zA-Z]+');
+// Route::get("/product/{branch}/{id}", [Products::class, "detail"])->where(["name" => "[\w]+", "id" => "[\d]+"]);
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
     //return env("APP_NAME");
 });
 
+
+Route::get("/posts", [Posts::class, "index"]);
+
+Route::resource("/foods", Foods::class);
+
+Route::get('/about', [Pages::class, "about"])->name("about");
+
 Route::get('/user', function () {
     return "Đặng Thị Huyền Trang";
-});
+})->name("user");
 
 Route::get("/food",  function () {
     return ["Sushi", "Miso"];
