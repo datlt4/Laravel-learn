@@ -42,6 +42,7 @@ composer install
 ```bash
 php artisan serve
 php artisan serve --port 5500
+php artisan serve --host <ip> --port <port>
 ```
 
 ```bash
@@ -132,6 +133,12 @@ php artisan tinker
 php artisan route:list
 ```
 
+## [Request in Laravel 8](https://toidicode.com/request-trong-laravel-8-phan-1-451.html)
+
+```bash
+php artisan make:controller User
+```
+
 ## Important Directory
 
 ```
@@ -146,4 +153,15 @@ public/storage
 resources/views
 
 routes/web.php
+```
+
+## Install laravel environment
+
+```bash
+cp .env.example .env
+composer install
+php artisan key:generate
+npm install 
+php artisan migrate:refresh && php artisan module:seed Common && php artisan module:seed Tool && php artisan passport:install
+npm run production
 ```
