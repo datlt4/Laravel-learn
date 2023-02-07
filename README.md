@@ -97,13 +97,17 @@ sudo mysql -u <username> -p
 CREATE DATABASE <table_name>;
 ```
 
+```bash
+php artisan db mysql
 ```
+
+```bash
 php artisan make:model PostModel
 php artisan make:migration create_posts
 php artisan make:model PostModel -m 
 ```
 
-```
+```bash
 php artisan migrate
 php artisan migrate:reset       # Call function down
 php artisan migrate:refresh     # refresh = rollback + migrate
@@ -111,20 +115,20 @@ php artisan migrate:fresh       # fresh: delete all tables and migrate
 php artisan migrate:status
 ```
 
-```
+```bash
 # Factory is where to generate dummy data
 php artisan make:factory PostModelFactory           # Factory name in format: <model_name>Factory
 php artisan make:factory PostModelFactory --model=PostModel
 ```
 
-```
+```bash
 php artisan tinker
 
 > \App\Models\PostModel::factory()->create();
 > \App\Models\PostModel::factory()->count(20)->create();
 ```
 
-```
+```bash
 php artisan route:list
 ```
 
